@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial Black', Impact, sans-serif;
+    color: #333;
+    background-color: #0d1117; 
+    overflow: hidden; 
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+
+
+body::after {
+    content: '';
+    position: fixed;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 80% 50%, rgba(0, 123, 255, 0.5), transparent 40%),radial-gradient(circle at 85% 60%, rgba(255, 215, 0, 0.3), transparent 30%),linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.1) 50%, transparent 55%); 
+    background-size: 100% 100%, 100% 100%, 200% 200%;
+    z-index: -1; 
+    animation: moveable 10s ease-in-out infinite, e 5s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes moveable {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes e {
+    0% {background-position:100% 100%, 100% 100%, 0% 0%;}
+    100% {background-position:100% 100%, 100% 100%, 200% 200%;
+    }
+}
